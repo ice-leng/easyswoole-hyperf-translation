@@ -1,0 +1,27 @@
+{
+    "name": "easyswoole-tool/hyperf-translation",
+    "description": "easyswoole hyperf translation",
+    "homepage" : "https://www.easyswoole.com/",
+    "license" : "Apache-2.0",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "lengbin",
+            "email": "xykxyk2008@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "hyperf/translation": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "EasySwoole\\Hyperf\\Translation\\": "src/"
+        }
+    },
+    "extra": {
+        "easyswoole": {
+            "config": "EasySwoole\\Hyperf\\Translation\\ConfigProvider"
+        }
+    }
+}
