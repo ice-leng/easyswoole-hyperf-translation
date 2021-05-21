@@ -1,14 +1,6 @@
 <?php
 
 declare(strict_types=1);
-/**
- * This file is part of Hyperf.
- *
- * @link     https://www.hyperf.io
- * @document https://doc.hyperf.io
- * @contact  group@hyperf.io
- * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
- */
 
 namespace EasySwoole\Hyperf\Translation;
 
@@ -21,8 +13,8 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                TranslatorInterface::class => TranslatorFactory::class,
-                TranslatorLoaderInterface::class => FileLoaderFactory::class,
+                TranslatorInterface::class => \EasySwoole\Hyperf\Translation\TranslatorFactory::class,
+                TranslatorLoaderInterface::class => \EasySwoole\Hyperf\Translation\FileLoaderFactory::class,
             ],
             'publish' => [
                 [
