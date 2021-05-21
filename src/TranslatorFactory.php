@@ -11,16 +11,15 @@ namespace EasySwoole\Hyperf\Translation;
 
 use Hyperf\Contract\TranslatorLoaderInterface;
 use Hyperf\Translation\Translator;
-use Psr\Container\ContainerInterface;
 
 class TranslatorFactory
 {
-    public function __invoke(ContainerInterface $container)
+    public function __invoke()
     {
         $locale = config('translation.locale', 'zh_CN');
         $fallbackLocale = config('translation.fallback_locale', 'en');
 
-        $loader = $container->get(TranslatorLoaderInterface::class);
+        $loader = make(TranslatorLoaderInterface::class);
         $translator = make(Translator::class, compact('loader', 'locale'));
         $translator->setFallback((string) $fallbackLocale);
 
