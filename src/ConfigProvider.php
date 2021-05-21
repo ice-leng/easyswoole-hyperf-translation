@@ -13,8 +13,8 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                TranslatorInterface::class => \EasySwoole\Hyperf\Translation\TranslatorFactory::class,
-                TranslatorLoaderInterface::class => \EasySwoole\Hyperf\Translation\FileLoaderFactory::class,
+                TranslatorInterface::class => (new \EasySwoole\Hyperf\Translation\TranslatorFactory)(),
+                TranslatorLoaderInterface::class => (new \EasySwoole\Hyperf\Translation\FileLoaderFactory)(),
             ],
             'publish' => [
                 [
