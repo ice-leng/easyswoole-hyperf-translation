@@ -2,7 +2,7 @@
     <a href="https://www.easyswoole.com/" target="_blank">
         <img src="https://raw.githubusercontent.com/easy-swoole/easyswoole/3.x/easyswoole.png" height="100px">
     </a>
-    <h1 align="center">EasySwoole Hyperf Orm Permission </h1>
+    <h1 align="center">EasySwoole Hyperf Translation </h1>
     <br>
 </p>
 
@@ -47,8 +47,6 @@ DI
 
 <?php
 declare(strict_types=1);
-
-namespace EasySwoole\HyperfOrm;
 
 use EasySwoole\Component\Di;
 use EasySwoole\Component\Singleton;
@@ -101,24 +99,21 @@ class Container implements ContainerInterface
 // EasySwooleEvent.php
 ```php
     use Hyperf\Contract\TranslatorInterface;
-    use Hyperf\Contract\TranslatorLoaderInterface;
-    use EasySwoole\Hyperf\Translation\TranslatorFactory;
-    use EasySwoole\Hyperf\Translation\FileLoaderFactory;
+    use EasySwoole\Hyperf\Translation\Translator;
     use EasySwoole\Component\Di;
     use Hyperf\Utils\ApplicationContext;
     use Psr\Container\ContainerInterface;
     
     Di::getInstance()->set(ContainerInterface::class, Container::class);
     ApplicationContext::setContainer(Di::getInstance()->get(ContainerInterface::class));
-    Di::getInstance()->set(TranslatorInterface::class, TranslatorFactory::class);
-    Di::getInstance()->set(TranslatorLoaderInterface::class,  FileLoaderFactory::class, []);
+    Di::getInstance()->set(TranslatorInterface::class, Translator::class);
 ```
 
 Use
 ------
 
 ```
-
-    echo __("hello");
+    echo __('messages.welcome', [], 'zh_CN');
 ```
 
+See [Translation other document](https://hyperf.wiki/2.0/#/zh-cn/translation).
