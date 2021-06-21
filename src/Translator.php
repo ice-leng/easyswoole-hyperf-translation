@@ -9,14 +9,15 @@
 
 namespace EasySwoole\Hyperf\Translation;
 
+use EasySwoole\EasySwoole\Config;
 use \Hyperf\Translation\Translator as BaseTranslator;
 
 class Translator extends BaseTranslator
 {
     public function __construct()
     {
-        $locale = config('translation.locale', 'zh_CN');
-        $fallbackLocale = config('translation.fallback_locale', 'en');
+        $locale = Config::getInstance()->getConf('translation.locale') ?? 'zh_CN';
+        $fallbackLocale = Config::getInstance()->getConf('translation.fallback_locale') ?? 'en';
         $loader = (new FileLoaderFactory)();
         parent::__construct($loader, $locale);
         $this->setFallback($fallbackLocale);
